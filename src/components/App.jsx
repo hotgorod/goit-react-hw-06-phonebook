@@ -38,9 +38,7 @@ export const App = () => {
       contactNumber: contactNumber,
     };
     setContacts([contact, ...contacts]);
-    // this.setState(prevState => ({
-    //   contacts: [contact, ...prevState.contacts],
-    // }));
+  
   };
 
   const changeFilter = event => {
@@ -70,24 +68,4 @@ export const App = () => {
   );
 };
 
-  // useEffect(() => {
-  //   const savedContacts = localStorage.getItem(LS_KONTACT_KEY);
-  //   const contactsToObject = JSON.parse(savedContacts) || [];
-  //   setContacts(contactsToObject);
 
-  // }, [])
-
-  // componentDidMount() {
-  //   const savedContacts = localStorage.getItem(LS_KONTACT_KEY);
-  //   const contactsToObject = JSON.parse(savedContacts) || [];
-  //   this.setState({ contacts: contactsToObject });
-
-  // }
-
-  // componentDidUpdate(_, prevState) {
-  //   if (this.state.contacts.length !== prevState.contacts.length) {
-  //     const jsonContacts = JSON.stringify(this.state.contacts);
-  //     localStorage.setItem(LS_KONTACT_KEY, jsonContacts);
-  //   }
-
-  // }

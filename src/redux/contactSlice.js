@@ -10,13 +10,14 @@ const contactSlice = createSlice({
   reducers: {
     
     addContact(state, action) {
-      console.log(state);
-      console.log(action);
     state.contacts.push({key: nanoid(),
     contactName: action.payload.contactName,
     contactNumber: action.payload.contactNumber,})
     },
-    deleteContact(state, action) {},
+
+    deleteContact(state, action) {
+      state.contacts = state.contacts.filter(contact => contact.key !== action.payload.key)
+    },
     changeFilter(state, action) {},
   },
 });

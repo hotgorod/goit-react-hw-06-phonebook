@@ -3,25 +3,25 @@ import React from 'react';
 import css from './ContactForm.module.css';
 
 export const ContactForm = ({ addContactCallback }) => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [contactName, setContactName] = useState('');
+  const [contactNumber, setContactNumber] = useState('');
 
   const handleChange = event => {
     const { name, value } = event.currentTarget;
     if (name === 'name') {
-      setName(value);
+      setContactName(value);
     } else if (name === 'number') {
-      setNumber(value);
+      setContactNumber(value);
     }
   };
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    addContactCallback(name, number);
+    addContactCallback(contactName, contactNumber);
 
-    setNumber('');
-    setName('');
+    setContactNumber('');
+    setContactName('');
   };
 
   return (
@@ -32,7 +32,7 @@ export const ContactForm = ({ addContactCallback }) => {
           className={css.inputText}
           type="text"
           name="name"
-          value={name}
+          value={contactName}
           onChange={handleChange}
         />
       </label>
@@ -42,7 +42,7 @@ export const ContactForm = ({ addContactCallback }) => {
           className={css.inputText}
           type="tel"
           name="number"
-          value={number}
+          value={contactNumber}
           onChange={handleChange}
         />
       </label>

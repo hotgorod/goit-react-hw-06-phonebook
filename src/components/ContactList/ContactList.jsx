@@ -8,9 +8,20 @@ import { deleteContact } from 'redux/contactSlice';
 const ContactList = () => {
   const contacts = useSelector(state => state.contacts.contacts);
   const dispatch = useDispatch();
+  const filter = useSelector(state => state.contacts.filter);
+
+  const getFilteredContacts = () => {
+    const normalizedFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.contactName.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
+  const filteredContacts = getFilteredContacts();
+
   return (
     <ul className={css.list}>
-      {contacts.map(({ key, contactName, contactNumber }) => (
+      {filteredContacts.map(({ key, contactName, contactNumber }) => (
         <li className={css.contactListItem} key={key}>
           <p className={css.contactListItemText}>
             {contactName}: {contactNumber}
@@ -18,7 +29,7 @@ const ContactList = () => {
           <button
             className={css.deleteButton}
             type="button"
-            onClick={()=>dispatch(deleteContact({key}))}
+            onClick={() => dispatch(deleteContact({ key }))}
           >
             Delete
           </button>

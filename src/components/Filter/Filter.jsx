@@ -1,6 +1,11 @@
 import css from './Filter.module.css';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { useDispatch } from 'react-redux';
+import { changeFilter } from 'redux/contactSlice';
 
-const Filter = ({ filter, onChange }) => {
+const Filter = () => {
+  const filter = useSelector(state => state.contacts.filter);
+  const dispatch = useDispatch();
   return (
     <label>
       Find contacts by name
@@ -8,7 +13,7 @@ const Filter = ({ filter, onChange }) => {
         className={css.inputText}
         type="text"
         value={filter}
-        onChange={onChange}
+        onChange={event => dispatch(changeFilter(event.target.value))}
       ></input>
     </label>
   );

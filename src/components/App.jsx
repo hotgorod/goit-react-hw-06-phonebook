@@ -32,49 +32,26 @@ export const App = () => {
   // }, [contacts]);
 
 
-  // const deleteContact = contactKey => {
-  //   // setContacts(contacts.filter(contact => contact.key !== contactKey));
-  // };
-
-  // const addContact = (contactName, contactNumber) => {
-  //   const isDuplicate = contacts.some(
-  //     contact => contact.contactName === contactName
-  //   );
-
-  //   if (isDuplicate) {
-  //     alert('The contact already exist');
-  //     return;
-  //   }
-
-  //   const contact = {
-  //     key: nanoid(),
-  //     contactName: contactName,
-  //     contactNumber: contactNumber,
-  //   };
-  //   setContacts([contact, ...contacts]);
-  
-  // };
-
-  const changeFilter = event => {
+  // const changeFilter = event => {
     
-    setFilter(event.currentTarget.value);
-  };
+  //   setFilter(event.currentTarget.value);
+  // };
 
-  const getFilteredContacts = () => {
-    // const normalizedFilter = filter.toLowerCase();
-    // return contacts.filter(contact =>
-    //   contact.contactName.toLowerCase().includes(normalizedFilter)
-    // );
-  };
+  // const getFilteredContacts = () => {
+  //   const normalizedFilter = filter.toLowerCase();
+  //   return contacts.filter(contact =>
+  //     contact.contactName.toLowerCase().includes(normalizedFilter)
+  //   );
+  // };
 
-  const filteredContacts = getFilteredContacts();
+  // const filteredContacts = getFilteredContacts();
 
   return (
     <div className={css.container}>
       <h1>Phonebook</h1>
       <ContactForm addContactCallback={addContactToPhonebook} />
       <h2>Contacts</h2>
-      <Filter filter={filter} onChange={changeFilter} />
+      <Filter/>
       <ContactList />
     </div>
   );
